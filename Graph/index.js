@@ -3,6 +3,7 @@ const  { DenseGraph, DAdjIterator }= require('./DenseGraph')
 const ReadGraph  = require('./ReadGraph')
 const Component = require('./Component')
 const Path = require('./Path')
+const ShortestPath = require('./ShortestPath');
 
 function main() {
     let filename = 'testG.txt';
@@ -12,9 +13,19 @@ function main() {
 
     console.log();
 
-    let path = new Path(g, SAdjIterator, 0);
-    console.log(`Path from 0 to 6: `);
-    path.showPath(6);
+    // 比较深度优先遍历和广度优先遍历获得路径的不同
+    // 广度优先比那里获得的是无权图的最短路径
+    let dfs = new Path(g, SAdjIterator, 0);
+    console.log(`DFS path from 0 to 6: `);
+    dfs.showPath(6);
+
+    let bfs = new ShortestPath(g, SAdjIterator ,0);
+    console.log(`BFS path from 0 to 6: `);
+    bfs.showPath(6)
+    
+    console.log();
+
+    
     
 }
 

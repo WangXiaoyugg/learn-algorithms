@@ -1,7 +1,6 @@
 /**
  * 寻路
  */
-
 const assert = require("assert");
 
 class Path {
@@ -53,7 +52,6 @@ class Path {
             p = this.from[p];
         }
 
-        // res = [];
         
         while(stack.length) {
             res.push(stack[stack.length - 1])
